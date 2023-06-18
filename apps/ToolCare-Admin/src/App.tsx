@@ -15,8 +15,7 @@ function App() {
         <NewTabLink href="https://turbo.build/repo">Turborepo</NewTabLink> +{" "}
         <NewTabLink href="https://vitejs.dev/">Vite</NewTabLink> +{" "}
         <NewTabLink href="https://reactjs.org/">React</NewTabLink>+{" "}
-        <NewTabLink href="https://tailwindcss.com/">Tailwind</NewTabLink>+{" "}
-        <NewTabLink href="https://www.typescriptlang.org/">TypeScript</NewTabLink>
+        <NewTabLink href="https://tailwindcss.com/">Tailwind</NewTabLink>
       </p>
 
       <p className="description">
