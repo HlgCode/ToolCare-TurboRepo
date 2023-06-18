@@ -1,0 +1,8 @@
+{
+    "conventionalCommits.scopes": [
+        "TurboRepo",
+        "ToolCare-API",
+        "ToolCare-Admin",
+        "ToolCare-Frontend"
+    ]
+}

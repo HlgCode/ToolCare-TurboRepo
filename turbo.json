@@ -6,8 +6,6 @@
     "build": {
       "outputs": [
         "dist/**",
-        ".next/**",
-        "!.next/cache/**",
         "build/**",
         "api/**",
         "public/build/**"

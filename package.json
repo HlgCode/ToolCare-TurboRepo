@@ -3,13 +3,14 @@
   "scripts": {
     "build": "turbo build",
     "clean": "turbo clean",
-    "dev": "turbo dev --no-cache  --continue",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "dev": "turbo dev ",
+    "format": "prettier --write \"**/*.{js,ts,tsx,md, json}\"",
     "lint": "turbo lint",
     "test": "turbo test"
   },
   "devDependencies": {
     "prettier": "^2.7.1",
+    "sequelize-cli": "^6.6.1",
     "turbo": "latest"
   },
   "packageManager": "npm@9.7.1",
