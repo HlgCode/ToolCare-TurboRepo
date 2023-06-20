@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 "use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -46,6 +48,10 @@ module.exports = {
         },
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
+      },
+      token: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
     });
   },
