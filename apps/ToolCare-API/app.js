@@ -4,6 +4,10 @@ const morgan = require("morgan");
 const cors = require("cors");
 const fs = require("fs").promises;
 
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 const createServer = () => {
   const app = express();
 

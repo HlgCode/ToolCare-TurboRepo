@@ -3,12 +3,14 @@
   "scripts": {
     "build": "turbo build",
     "clean": "turbo clean",
-    "dev": "turbo dev ",
+    "dev": "dotenv -- turbo dev ",
     "format": "prettier --write \"**/*.{js,ts,tsx,md, json}\"",
     "lint": "turbo lint",
     "test": "turbo test"
   },
   "devDependencies": {
+    "dotenv": "^16.3.1",
+    "dotenv-cli": "^7.2.1",
     "prettier": "^2.7.1",
     "sequelize-cli": "^6.6.1",
     "turbo": "latest"

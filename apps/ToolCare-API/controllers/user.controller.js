@@ -1,5 +1,55 @@
+/* eslint-disable turbo/no-undeclared-env-vars */
 const { User } = require("../database/models");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
+const key = process.env.JWT_SECRET;
+
+// -----------------------[Funciones para la Autenticación]--------------------------
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    
+    if (!email || !password) {
+      res.status(400).json({ error: "Todos los campos son obligatorios" });
+    }
+
+    const user = await User.findOne({ where: { email } });
+    console.log(user);
+    if(user && (await bcrypt.compare(password, user.password))) {
+      const token = jwt.sign({ email }, key, {
+        expiresIn: "5 minutes"
+      });
+      
+      user.token = token;
+
+      user.save()
+      .then(() => console.log("Token guardado")).catch((err) => console.log(err));
+
+      res.status(200).json(user);
+    }else {
+      res.status(401).json({ error: "Credenciales incorrectas" });
+    }
+
+  } catch (error) {
+    console.log("Error al iniciar sesión", error);
+  }
+};
+
+exports.welcome = async (req, res) => {
+  try {
+   
+      res.status(200).json({ message: "Bienvenido a ToolCare" });
+    
+  } catch (error) {
+    console.log("Error al iniciar sesión", error);
+  }
+};
+// -----------------------[Funciones para el CRUD]--------------------------
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.findAll();
@@ -24,21 +74,45 @@ exports.getUserById = async (req, res) => {
     res.status(500).json({ error: "Error al obtener el usuario" });
   }
 };
-
+// Aca se deberia almacenar la contraseña encriptada usando bcrypt
 exports.createUser = async (req, res) => {
-  const { idCard, fullName, birthDate, email, username, password, roleId } =
-    req.body;
   try {
+    if (
+      !req.body.idCard ||
+      !req.body.fullName ||
+      !req.body.birthDate ||
+      !req.body.email ||
+      !req.body.username ||
+      !req.body.password ||
+      !req.body.roleId
+    ) {
+      return res
+        .status(400)
+        .json({ error: "Todos los campos son obligatorios" });
+    }
+    const { idCard, fullName, birthDate, email, username, password, roleId } =
+      req.body;
+    const userExists = await User.findOne({ where: { email } });
+    if (userExists) {
+      return res.status(400).json({ error: "El usuario ya existe" });
+    }
+
+    const encriptedPassword = await bcrypt.hash(password, 10);
+
     const newUser = await User.create({
       idCard,
       fullName,
       birthDate,
       email,
       username,
-      password,
+      password: encriptedPassword,
       roleId,
     });
-    res.json(newUser);
+    
+    return res
+      .status(201)
+      .json(newUser);
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Error al crear el usuario" });

@@ -1,16 +1,22 @@
 const { Router } = require("express");
-
+const auth = require("../middlewares/auth");
 const {
-  deleteUser,
-  updateUser,
+  login,
+  welcome,
   createUser,
-  getUserById,
   getAllUsers,
+  getUserById,
+  updateUser,
+  deleteUser,
 } = require("../controllers/user.controller");
 
 const router = Router();
+// -----------------------[Rutas para la Autenticación]--------------------------
 
-// CRUD Routes
+router.post("/login", login);
+router.get("/welcome", auth, welcome);
+
+// -----------------------[Rutas para el CRUD]--------------------------
 
 // Obtener todas los usuarios
 router.get("/users", getAllUsers);
@@ -27,7 +33,7 @@ router.put("/users/:id", updateUser);
 // Eliminar un usuario existente
 router.delete("/users/:id", deleteUser);
 
-//-----------------------------OTRAS RUTAS-----------------------------------
+// -----------------------[Rutas para las relaciones]--------------------------
 
 // Obtener todas las Sedes a las que pertenece el usuario
 // router.get("/users/:id/locations")

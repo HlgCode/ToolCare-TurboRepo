@@ -35,7 +35,7 @@ async function main() {
         " ]--------------------"
     );
     // Este metodo sirve para sincronizar automaticamente los modelos.
-    await db.sequelize.sync();
+    await db.sequelize.sync({ force: false});
 
     console.log("Todos los modelos se sincronizaron con éxito.");
 
