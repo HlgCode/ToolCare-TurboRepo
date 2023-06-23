@@ -1,30 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from "react";
-import "./App.css";
-import { CounterButton, NewTabLink } from "ui";
+import "../../../packages/ui/src/App.css";
+// import { Login } from "ui";
+import { DrawerWithNav } from "ui";
 
 function App() {
   return (
-    <div className="container">
-      <h1 className="title">
-        Admin <br />
-        <span>ToolCare</span>
-      </h1>
-      <CounterButton />
-      <p className="description">
-        Built With{" "}
-        <NewTabLink href="https://turbo.build/repo">Turborepo</NewTabLink> +{" "}
-        <NewTabLink href="https://vitejs.dev/">Vite</NewTabLink> +{" "}
-        <NewTabLink href="https://reactjs.org/">React</NewTabLink>+{" "}
-        <NewTabLink href="https://tailwindcss.com/">Tailwind</NewTabLink>
-      </p>
-
-      <p className="description">
-        Linted With{" "}
-        <NewTabLink href="https://eslint.org/">ESLint</NewTabLink> | {" "}
-        Format With{" "}
-        <NewTabLink href="https://prettier.io/">Prettier</NewTabLink>
-      </p>
-    </div>
+    <>
+      <div className="App">
+        {/* <Login /> */}
+        <DrawerWithNav />
+        <h1 className="title">Holaaaa!!!</h1>
+      </div>
+    </>
   );
 }
 
