@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "../../../packages/ui/src/index.css";
 import App from "./App";
+import "../../../packages/ui/src/index.css";
 
 import { ThemeProvider } from "@material-tailwind/react";
 

@@ -9,11 +9,14 @@
     "test": "turbo test"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.14",
     "dotenv": "^16.3.1",
     "dotenv-cli": "^7.2.1",
+    "postcss": "^8.4.24",
     "prettier": "^2.7.1",
     "sequelize-cli": "^6.6.1",
-    "turbo": "latest"
+    "tailwindcss": "^3.3.2",
+    "turbo": "^1.10.6"
   },
   "packageManager": "npm@9.7.1",
   "workspaces": [

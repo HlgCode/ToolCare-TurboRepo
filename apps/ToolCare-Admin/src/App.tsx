@@ -1,16 +1,27 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from "react";
 import "../../../packages/ui/src/App.css";
-// import { Login } from "ui";
-import { DrawerWithNav } from "ui";
+
+import {
+  // DrawerWithNav,
+  UserTable,
+  // CounterButton,
+  Login,
+  // NewTabLink,
+  // Sidebar,
+} from "ui";
 
 function App() {
   return (
     <>
       <div className="App">
-        {/* <Login /> */}
-        <DrawerWithNav />
-        <h1 className="title">Holaaaa!!!</h1>
+        <div className="container">
+          {/* <Sidebar/> */}
+          {/* <DrawerWithNav/> */}
+          {/* <UserTable/> */}
+          {/* <CounterButton/> */}
+          <Login />
+        </div>
       </div>
     </>
   );
