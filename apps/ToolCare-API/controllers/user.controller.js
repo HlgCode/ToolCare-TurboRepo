@@ -1,5 +1,6 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
 const { User } = require("../database/models");
+const { Role } = require("../database/models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -52,7 +53,9 @@ exports.welcome = async (req, res) => {
 // -----------------------[Funciones para el CRUD]--------------------------
 exports.getAllUsers = async (req, res) => {
   try {
-    const users = await User.findAll();
+    const users = await User.findAll({
+      include: [{ model: Role }],
+    });
     res.json(users);
   } catch (error) {
     console.error(error);
@@ -63,7 +66,9 @@ exports.getAllUsers = async (req, res) => {
 exports.getUserById = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(id, {
+      include: [{ model: Role }],
+    });
     if (user) {
       res.json(user);
     } else {
