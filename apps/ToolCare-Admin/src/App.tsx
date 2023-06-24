@@ -3,12 +3,14 @@ import * as React from "react";
 import "../../../packages/ui/src/App.css";
 
 import {
-  // DrawerWithNav,
+  DrawerWithNav,
   UserTable,
   // CounterButton,
   Login,
   // NewTabLink,
   // Sidebar,
+  MaintenanceTable,
+  DialogWithForm,
 } from "ui";
 
 function App() {
@@ -17,10 +19,12 @@ function App() {
       <div className="App">
         <div className="container">
           {/* <Sidebar/> */}
-          {/* <DrawerWithNav/> */}
+          {/*<DrawerWithNav/>*/}
           {/* <UserTable/> */}
           {/* <CounterButton/> */}
-          <Login />
+          {/*<Login />*/}
+          {/*<MaintenanceTable />*/}
+          {/*<DialogWithForm/>*/}
         </div>
       </div>
     </>

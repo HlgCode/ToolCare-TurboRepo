@@ -5,4 +5,5 @@ export { Login } from "./components/Auth/Login";
 export { DrawerWithNav } from "./components/DrawerWithNav";
 export { UserTable } from "./components/UserTable";
 export { Sidebar } from "./components/Sidebar";
-
+export {MaintenanceTable} from "./components/MaintenanceTable";
+export {DialogWithForm} from "./components/DialogWithForm"
