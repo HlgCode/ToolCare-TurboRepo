@@ -23,7 +23,10 @@ module.exports = withMT({
     // ),
   ],
   theme: {
-    extend: {},
+    colors: {
+      "light-silver": "#d9d9d9",
+      "pastel-orange": "#ffa750",
+    },
   },
   plugins: [],
 });
