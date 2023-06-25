@@ -9,3 +9,4 @@ export {MaintenanceTable} from "./components/MaintenanceTable";
 export {DialogWithForm} from "./components/DialogWithForm";
 export { ProtectedRoute } from "./components/Auth/ProtectedRoute";
 export { AuthProvider } from "./components/Auth/AuthProvider";
+export { Spinner } from "./components/Spinner";

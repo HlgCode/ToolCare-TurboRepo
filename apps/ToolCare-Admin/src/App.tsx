@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import * as React from "react";
+import React, { useState, useEffect } from "react";
+
 import "../../../packages/ui/src/App.css";
 
 import {
@@ -14,6 +15,15 @@ import {
 } from "ui";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulación de una carga asíncrona
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <>
       <div className="App">
