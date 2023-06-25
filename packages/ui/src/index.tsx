@@ -5,4 +5,4 @@ export { Login } from "./components/Auth/Login";
 export { DrawerWithNav } from "./components/DrawerWithNav";
 export { UserTable } from "./components/UserTable";
 export { Sidebar } from "./components/Sidebar";
-
+export { Spinner } from "./components/Spinner";
