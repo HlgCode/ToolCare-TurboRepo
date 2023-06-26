@@ -9,8 +9,8 @@ import {
   Login,
   // NewTabLink,
   // Sidebar,
-  MaintenanceTable,
-  DialogWithForm,
+  // MaintenanceTable,
+  // DialogWithForm,
 } from "ui";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           {/*<DrawerWithNav/>*/}
           {/* <UserTable/> */}
           {/* <CounterButton/> */}
-          {/*<Login />*/}
+          <Login />
           {/*<MaintenanceTable />*/}
           {/*<DialogWithForm/>*/}
         </div>

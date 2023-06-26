@@ -1,5 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthProvider";
 import {
   Card,
   Input,
@@ -9,6 +12,16 @@ import {
 } from "@material-tailwind/react";
 
 export const Login = () => {
+  // State global para saber si está autenticado}
+  const auth = useAuth();
+
+  const navigate = useNavigate();
+  
+  // Si el usuario está autenticado se redirige al dashboard
+  if (auth.isAuthenticated) {
+    return <Navigate to="/login/home"/>;
+  }
+
   // State con los datos del usuario
   const [ credentials, saveCredentials ] = useState({});
 
@@ -36,14 +49,17 @@ export const Login = () => {
         console.log(responseJSON.error);
       } else {
         console.log(responseJSON);
+        auth.isAuthenticated = true;
+        navigate("/login/home");
       }
     } catch (error) {
       console.log(error);
     }
   }
+  
 
   return (
-    <Card className="bg-light-silver flex items-center" shadow={false}>
+    <Card className="flex items-center" shadow={false}>
       <img
         src="public/Logo.png"
         alt="ToolCare Logo"

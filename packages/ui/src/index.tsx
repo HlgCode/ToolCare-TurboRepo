@@ -6,4 +6,6 @@ export { DrawerWithNav } from "./components/DrawerWithNav";
 export { UserTable } from "./components/UserTable";
 export { Sidebar } from "./components/Sidebar";
 export {MaintenanceTable} from "./components/MaintenanceTable";
-export {DialogWithForm} from "./components/DialogWithForm"
+export {DialogWithForm} from "./components/DialogWithForm";
+export { ProtectedRoute } from "./components/Auth/ProtectedRoute";
+export { AuthProvider } from "./components/Auth/AuthProvider";
