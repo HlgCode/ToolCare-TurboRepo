@@ -10,7 +10,7 @@ import {
   CardFooter,
 } from "@material-tailwind/react";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { API_URL } from "../../config/config";
 
 const TABLE_HEAD = [
@@ -24,7 +24,7 @@ const TABLE_HEAD = [
 
 export const UserTable = () => {
   const [data, saveData] = useState([]);
-  const [open, setOpen] = useState(false);
+  const [idCard, saveIdCard] = useState("");
 
   const consultarUsarios = async () => {
     const response = await fetch(`${API_URL}/users`);
@@ -32,7 +32,18 @@ export const UserTable = () => {
     saveData(responseJSON);
   };
 
-  const handleOpen = () => setOpen((cur) => !cur);
+  const consultarPorIdCard = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const response = await fetch(`${API_URL}/users/${idCard}`);
+    const responseJSON = await response.json();
+
+    if (responseJSON.length === 0) {
+      alert("Usuario no encontrado");
+      return
+    } else {
+      saveData(responseJSON);
+    }
+  }
 
   useEffect(() => {
     consultarUsarios();
@@ -40,8 +51,8 @@ export const UserTable = () => {
 
   return (
       <Card className="w-full h-full m-0 rounded-none rounded-r-4rem">
-        <CardHeader floated={false} shadow={false} className="rounded-r-4rem">
-          <div className="flex flex-col md:flex-row items-center justify-around gap-50">
+        <CardHeader floated={false} shadow={false} className="rounded-none rounded-tr-4rem my-10">
+          <div className="flex flex-col md:flex-row items-center justify-around gap-50 mb-7">
             <div>
               <Typography variant="h5" color="blue-gray">
                 Usuarios
@@ -50,13 +61,10 @@ export const UserTable = () => {
                 Gestionar informacion de los usuarios
               </Typography>
             </div>
-            <div className="flex shrink-0 flex-row gap-2">
-              <Button variant="outlined" color="blue-gray" size="sm">
-                Ver todos
-              </Button>
+            <div >
               <Button
-                onClick={handleOpen}
-                className="flex items-center gap-3"
+                // onClick={}
+                className="flex items-center gap-3 bg-pastel-orange"
                 color="blue"
                 size="sm"
               >
@@ -65,13 +73,14 @@ export const UserTable = () => {
               </Button>
             </div>
           </div>
-          <div className="">
-            <div className="w-full">
+          <div>
+            <form className="w-full" onSubmit={consultarPorIdCard}>
               <Input
-                label="Buscar"
+                label="Buscar por ID Card"
                 icon={<MagnifyingGlassIcon className="h-5 w-5" />}
+                onChange={(e) => saveIdCard(e.target.value)}
               />
-            </div>
+            </form>
           </div>
         </CardHeader>
         <CardBody className="p-0 overflow-scroll m-0">
@@ -98,6 +107,7 @@ export const UserTable = () => {
               {data.map(
                 (
                   {
+                    id,
                     idCard,
                     fullName,
                     email,
@@ -161,6 +171,7 @@ export const UserTable = () => {
                       
                       <td className={classes}>
                         <div className="flex flex-row gap-5">
+                          <input type="hidden" name="user_id" value={id} />
                           <Typography
                             as="a"
                             href="#"
