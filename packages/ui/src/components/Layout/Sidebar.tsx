@@ -32,7 +32,7 @@ import { Link, useNavigate } from "react-router-dom";
     
     return (
       <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] shadow-none rounded-l-4rem">
-        <div className="mb-2 p-4">
+        <div className="mb-2 p-4 text-center">
           <Typography variant="p" color="blue-gray">
             {localStorage.getItem("username")}
           </Typography>

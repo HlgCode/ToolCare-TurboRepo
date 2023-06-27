@@ -51,14 +51,22 @@ export const LoginForm = () => {
         setErrorResponse(responseJSON.error);
         return;
       } else {
-        console.log("Login successful");
-        setErrorResponse("");
         const responseJSON = (await response.json()) as AuthResponse;
-
-        if (responseJSON.token) {
-          auth.saveUser(responseJSON);
-          navigate("/home");
+        
+        if (responseJSON.roleId === 1) {
+          console.log("Login successful");
+          setErrorResponse("");
+  
+          if (responseJSON.token) {
+            auth.saveUser(responseJSON);
+            navigate("/home");
+          }
+        } else {
+          console.log("403: Forbidden");
+          setErrorResponse("El usuario no posee los permisos necesarios");
+          return;
         }
+
       }
     } catch (error) {
       console.log(error);
