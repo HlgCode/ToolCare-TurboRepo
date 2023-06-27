@@ -14,26 +14,3 @@ export const Loader = () => {
     </>
   );
 };
-
-// import React from "react";
-// import "../App.css"; // Importa los estilos del spinner
-
-// export const spinner = () => {
-//   return (
-//     <>
-//       <div className="loader-container flex flex-col ">
-
-//           <img
-//             src="public/Logo.png"
-//             alt="Logo"
-//           />
-//         <br />
-//         <br />
-//         <div className="loader"></div>
-//         <br />
-//         <h3> <span>Loading...</span> </h3>
-
-//       </div>
-//     </>
-//   );
-// };
