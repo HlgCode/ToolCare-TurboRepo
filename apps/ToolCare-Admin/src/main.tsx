@@ -1,7 +1,6 @@
 import * as React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Home from "./pages/Home";
 import "../../../packages/ui/src/index.css";
 import {
   createBrowserRouter,
@@ -10,32 +9,47 @@ import {
 
 import { 
   Login,
-  ProtectedRoute, 
-  AuthProvider, 
-} from "ui/src/index";
+  Home,
+  Landing,
+} from "ui/src/pages";
+
+import {
+  ProtectedRoute,
+  AuthProvider,
+} from "ui/src";
 
 import { ThemeProvider } from "@material-tailwind/react";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>asdasdasd</div>
+    element: <Landing />
   },
   {
     path: "/login",
-    element: <Login />
+    element: <Login/>
   },
   {
-    path: "/login",
+    path: "/",
     element: <ProtectedRoute/>,
     children: [
       {
-        path: "/login/home",
+        path: "/home",
         element: <Home/>
       }
     ],
   }
 ]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+     <ThemeProvider>
+       <AuthProvider>
+         <RouterProvider router={router} />
+       </AuthProvider>
+     </ThemeProvider>
+   </React.StrictMode>
+);
 
 // ReactDOM.render(
 //   <React.StrictMode>
@@ -47,13 +61,3 @@ const router = createBrowserRouter([
 //   </React.StrictMode>,
 //   document.getElementById("root")
 // );
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-     <ThemeProvider>
-       <AuthProvider>
-         <RouterProvider router={router} />
-       </AuthProvider>
-     </ThemeProvider>
-   </React.StrictMode>
-);
