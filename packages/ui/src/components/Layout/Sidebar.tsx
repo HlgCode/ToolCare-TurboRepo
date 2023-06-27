@@ -16,6 +16,13 @@ import {
     Cog6ToothIcon,
     InboxIcon,
     PowerIcon,
+    HomeIcon,
+    HomeModernIcon,
+    CalendarIcon,
+    TruckIcon,
+    TicketIcon,
+    BugAntIcon, 
+    ArrowLeftOnRectangleIcon
   } from "@heroicons/react/24/solid";
 import { useAuth } from "../Auth/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
@@ -43,56 +50,56 @@ import { Link, useNavigate } from "react-router-dom";
         <List>
           <ListItem>
             <ListItemPrefix>
-              <Bars3Icon className="h-5 w-5" />
+              <HomeIcon className="h-5 w-5" />
             </ListItemPrefix>
             Dashboard
           </ListItem>
           <ListItem>
             <ListItemPrefix>
-              <Bars3Icon className="h-5 w-5" />
+              <UserCircleIcon className="h-5 w-5" />
             </ListItemPrefix>
             Usuarios
           </ListItem>
           <ListItem>
             <ListItemPrefix>
-              <Bars3Icon className="h-5 w-5" />
+              <HomeModernIcon className="h-5 w-5" />
             </ListItemPrefix>
             Sedes
           </ListItem>
           <ListItem>
             <ListItemPrefix>
-              <Bars3Icon className="h-5 w-5" />
+              <CalendarIcon className="h-5 w-5" />
             </ListItemPrefix>
             Cronogramas
           </ListItem>
           <ListItem>
             <ListItemPrefix>
-              <Bars3Icon className="h-5 w-5" />
+              <TruckIcon className="h-5 w-5" />
             </ListItemPrefix>
             Proveedores
           </ListItem>
           <ListItem>
             <ListItemPrefix>
-              <Bars3Icon className="h-5 w-5" />
+              <TicketIcon className="h-5 w-5" />
             </ListItemPrefix>
             Ordenes
           </ListItem>
           <ListItem>
             <ListItemPrefix>
-              <Bars3Icon className="h-5 w-5" />
+              <PresentationChartBarIcon className="h-5 w-5" />
             </ListItemPrefix>
             Informes
           </ListItem>
           <ListItem>
             <ListItemPrefix>
-              <Bars3Icon className="h-5 w-5" />
+              <BugAntIcon className="h-5 w-5" />
             </ListItemPrefix>
             Reportes
           </ListItem>
           <Link to="#" onClick={handleSignOut}>
             <ListItem>
               <ListItemPrefix>
-                <PowerIcon className="h-5 w-5" />
+                <ArrowLeftOnRectangleIcon className="h-5 w-5" />
               </ListItemPrefix>
               Cerrar sesión 
             </ListItem>
