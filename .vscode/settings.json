@@ -4,5 +4,6 @@
         "ToolCare-API",
         "ToolCare-Admin",
         "ToolCare-Front"
-    ]
+    ],
+    "editor.fontSize": 18
 }

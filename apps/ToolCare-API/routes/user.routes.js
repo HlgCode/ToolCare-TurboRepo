@@ -14,7 +14,7 @@ const router = Router();
 // -----------------------[Rutas para la Autenticación]--------------------------
 
 router.post("/login", login);
-router.get("/welcome", auth, welcome);
+router.get("/dashboard", auth, welcome);
 
 // -----------------------[Rutas para el CRUD]--------------------------
 

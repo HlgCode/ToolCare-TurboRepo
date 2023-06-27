@@ -3,6 +3,6 @@
     "lib": ["dom", "ES2015"]
   },
   "extends": "tsconfig/react-library.json",
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "src/index.tsx"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "src/index.tsx", "../../apps/ToolCare-Admin/src/pages/Auth.jsx"],
   "exclude": ["dist", "build", "node_modules"]
 }
