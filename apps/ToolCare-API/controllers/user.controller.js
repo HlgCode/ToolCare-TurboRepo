@@ -66,7 +66,8 @@ exports.getAllUsers = async (req, res) => {
 exports.getUserById = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findByPk(id, {
+    const user = await User.findAll({
+      where: { idCard: id },
       include: [{ model: Role }],
     });
     if (user) {
