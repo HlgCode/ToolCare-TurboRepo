@@ -23,7 +23,7 @@ export const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [errorResponse, setErrorResponse] = useState("");
   
-  // State global para saber si está autenticado}
+  // State global para saber si está autenticado
   const auth = useAuth();
   
   // Si el usuario está autenticado se redirige al dashboard
